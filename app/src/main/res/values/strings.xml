@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NoteBook</string>
+    <string name="ContentEdit">内容编辑:</string>
+    <string name="EditInThis">此处记录备忘事件</string>
+    <string name="CANCEL">取消</string>
+    <string name="SAVE">保存</string>
+    <string name="EditNoteBook">编辑备忘录</string>
+</resources>
