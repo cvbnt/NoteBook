@@ -4,7 +4,7 @@ A simple Android notebook
 Version 1.1:  
 1、使用Material设计，添加Toolbar，FloattingActionButton，NavigationView，DrawerLayout。  
 2、将主界面的添加备忘录按钮替换成FloatingActionBar。   
-![main](https://github.com/cvbnt/NoteBook/images/Version1/material_main.png)
+![main](https://github.com/cvbnt/NoteBook/raw/master/images/Version1/main.png)
 ![edit](https://github.com/cvbnt/NoteBook/images/Version1/edit.png)
 ![edit_hello](https://github.com/cvbnt/NoteBook/images/Version1/edit_who_are_you.png)
 ![show](https://github.com/cvbnt/NoteBook/images/Version1/show.png)  
