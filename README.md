@@ -17,4 +17,4 @@ Version 1：
 ![main](https://github.com/cvbnt/NoteBook/raw/master/images/Version1/main.png)
 ![edit](https://github.com/cvbnt/NoteBook/raw/master/images/Version1/edit.png)
 ![edit_hello](https://github.com/cvbnt/NoteBook/raw/master/images/Version1/edit_hello.png)
-![show](https://github.com/cvbnt/NoteBook/images/raw/master/images/Version1/show.png)
+![show](https://github.com/cvbnt/NoteBook/raw/master/images/Version1/show.png)
