@@ -1,21 +1,28 @@
 package t.n.b.v.c.notebook;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
-
+import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,10 +33,12 @@ public class MainActivity extends AppCompatActivity implements
     private ListView mListView;
     private SimpleAdapter simple_adapter;      //可显示图片和文字的适配器，不能后期加工的适配器，单纯用来显示，必须用Map类
     private List<Map<String, Object>> dataList;//用于收集获取到的本地数据库的数据
-    private Button addNoteButton;
+    private FloatingActionButton addNoteButton;
     private TextView mItemContent;
     private MyDataBaseHelper DbHelper;
     private SQLiteDatabase db;
+    private Toolbar mToolBar;
+    private DrawerLayout mDrawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +49,10 @@ public class MainActivity extends AppCompatActivity implements
 
     private void find() {                //绑定ID全写在一个类里
         mListView=(ListView)findViewById(R.id.listview);
-        addNoteButton=(Button)findViewById(R.id.addNote);
+        addNoteButton=(FloatingActionButton) findViewById(R.id.addNote);
         mItemContent=(TextView)findViewById(R.id.itemContent);
+        mToolBar=(Toolbar) findViewById(R.id.toolbar);
+        mDrawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
     }
 
     @Override
@@ -51,6 +62,12 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void load() {
+        setSupportActionBar(mToolBar);
+        android.support.v7.app.ActionBar actionBar=getSupportActionBar();
+        if (actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_18dp);
+        }
         dataList=new ArrayList<Map<String, Object>>();
         DbHelper =new MyDataBaseHelper(this);
         db=DbHelper.getReadableDatabase();          //数据库基本操作，读取
@@ -130,5 +147,29 @@ public class MainActivity extends AppCompatActivity implements
                 .show();
         return true;
     }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.toolbar,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                break;
+            case R.id.backup:
+                Toast.makeText(this,"You clicked Backup",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.delete:
+                Toast.makeText(this,"You clicked Delete",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.settings:
+                Toast.makeText(this,"You clicked Settings",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 }

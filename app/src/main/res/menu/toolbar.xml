@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<http:menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:http="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
+    <!--添加以保证向下兼容-->
+    <!--按钮图片-->
+<item
+    android:id="@+id/backup"
+    android:icon="@mipmap/ic_launcher"
+    android:title="Backup"
+    app:showAsAction="always"
+    />
+    <!--alyways表示永远显示在toolbar中-->
+<item
+    android:id="@+id/delete"
+    android:icon="@mipmap/ic_launcher"
+    android:title="Delete"
+    app:showAsAction="ifRoom"
+    />
+    <!--ifRoom表示屏幕空间足够则显示在Toolbar中，不够则显示在菜单中-->
+<item
+    android:id="@+id/settings"
+    android:icon="@mipmap/ic_launcher"
+    android:title="Settings"
+    app:showAsAction="never"
+    />
+   <!--never表示永远显示在菜单中 -->
+    </http:menu>
